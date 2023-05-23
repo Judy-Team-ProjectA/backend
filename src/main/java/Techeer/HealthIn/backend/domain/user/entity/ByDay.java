@@ -6,6 +6,10 @@ import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 
+import java.util.UUID;
+
+import static javax.persistence.FetchType.LAZY;
+
 @Getter
 @Setter
 @Entity
@@ -19,4 +23,22 @@ public class ByDay extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @Enumerated(EnumType.STRING)
+    private Day day;
+
+    @Column(name = "target")
+    private String target;
+
+    @Builder
+    public ByDay(User user, Day day, String target) {
+        this.user = user;
+        this.day = day;
+        this.target = target;
+
+        super.isActivated = true;
+    }
 }

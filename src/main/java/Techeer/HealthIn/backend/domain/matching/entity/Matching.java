@@ -25,11 +25,11 @@ public class Matching extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = LAZY)
-    @Column(name = "requester_id")
+    @JoinColumn(name = "requester_id")
     private User requester;
 
     @ManyToOne(fetch = LAZY)
-    @Column(name = "receiver_id")
+    @JoinColumn(name = "receiver_id")
     private User receiver;
 
     @Column(name = "uuid", columnDefinition = "BINARY(16)")
@@ -37,7 +37,6 @@ public class Matching extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private MatchingStatus status;
-
 
     @Builder
     public Matching(User requester, User receiver, MatchingStatus status) {
