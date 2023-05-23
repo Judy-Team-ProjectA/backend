@@ -21,7 +21,7 @@ services:
   backend:
     container_name: HealthIn-backend
     build:
-      context: src/main/java
+      context: ./
     command: gradle bootRun
     ports:
       - "8080:8080"
