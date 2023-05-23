@@ -1,11 +1,14 @@
 package Techeer.HealthIn.backend.domain.user.entity;
 
+import Techeer.HealthIn.backend.domain.matching.entity.Matching;
 import Techeer.HealthIn.backend.global.domain.BaseEntity;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
