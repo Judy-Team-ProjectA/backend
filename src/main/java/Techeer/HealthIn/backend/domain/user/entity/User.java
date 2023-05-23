@@ -1,11 +1,14 @@
 package Techeer.HealthIn.backend.domain.user.entity;
 
+import Techeer.HealthIn.backend.domain.matching.entity.Matching;
 import Techeer.HealthIn.backend.global.domain.BaseEntity;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -14,7 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "user")
-@SQLDelete(sql = "UPDATE user SET is_active = false WHERE id=?")
+@SQLDelete(sql = "UPDATE user SET is_activated = false WHERE id=?")
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,18 +50,22 @@ public class User extends BaseEntity {
     @Column(name = "gym", length = 255)
     private String gym;
 
-    @Column(name = "address", length = 255)
-    private String address;
+    @Embedded
+    private Address address;
 
     @Column(name = "time")
     private LocalDateTime time;
+
+
+    @OneToMany(mappedBy = "user")
+    private List<ByDay> byDays = new ArrayList<>();
 
     public enum Gender {
         MALE, FEMALE
     }
 
     @Builder
-    public User(String email, String password, String name, Gender gender, int age, int career, float sbd, String gym, LocalDateTime time, String address) {
+    public User(String email, String password, String name, Gender gender, int age, int career, float sbd, String gym, LocalDateTime time, Address address) {
         this.email = email;
         this.password = password;
         this.name = name;
