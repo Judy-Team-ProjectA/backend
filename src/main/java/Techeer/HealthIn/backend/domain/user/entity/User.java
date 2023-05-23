@@ -17,7 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "user")
-@SQLDelete(sql = "UPDATE user SET is_active = false WHERE id=?")
+@SQLDelete(sql = "UPDATE user SET is_activated = false WHERE id=?")
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -17,7 +17,7 @@ import static javax.persistence.FetchType.LAZY;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "matching")
-@SQLDelete(sql = "UPDATE matching SET is_active = false WHERE id=?")
+@SQLDelete(sql = "UPDATE matching SET is_activated = false WHERE id=?")
 public class Matching extends BaseEntity {
 
     @Id

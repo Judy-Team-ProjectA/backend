@@ -16,7 +16,7 @@ import static javax.persistence.FetchType.LAZY;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "by_day")
-@SQLDelete(sql = "UPDATE by_day SET is_active = false WHERE id=?")
+@SQLDelete(sql = "UPDATE by_day SET is_activated = false WHERE id=?")
 public class ByDay extends BaseEntity {
 
     @Id
