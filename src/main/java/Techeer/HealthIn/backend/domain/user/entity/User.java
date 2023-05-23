@@ -50,8 +50,8 @@ public class User extends BaseEntity {
     @Column(name = "gym", length = 255)
     private String gym;
 
-    @Column(name = "address", length = 255)
-    private String address;
+    @Embedded
+    private Address address;
 
     @Column(name = "time")
     private LocalDateTime time;
@@ -61,7 +61,7 @@ public class User extends BaseEntity {
     }
 
     @Builder
-    public User(String email, String password, String name, Gender gender, int age, int career, float sbd, String gym, LocalDateTime time, String address) {
+    public User(String email, String password, String name, Gender gender, int age, int career, float sbd, String gym, LocalDateTime time, Address address) {
         this.email = email;
         this.password = password;
         this.name = name;
