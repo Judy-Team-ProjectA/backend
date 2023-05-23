@@ -47,5 +47,4 @@ public class Matching extends BaseEntity {
         super.isActivated = true;
         this.uuid = UUID.randomUUID();
     }
-
 }
