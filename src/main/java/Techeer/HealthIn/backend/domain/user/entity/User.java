@@ -56,6 +56,10 @@ public class User extends BaseEntity {
     @Column(name = "time")
     private LocalDateTime time;
 
+
+    @OneToMany(mappedBy = "user")
+    private List<ByDay> byDays = new ArrayList<>();
+
     public enum Gender {
         MALE, FEMALE
     }
