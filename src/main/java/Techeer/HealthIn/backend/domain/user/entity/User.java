@@ -10,9 +10,9 @@ import java.util.UUID;
 
 @Getter
 @Setter
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
 @Table(name = "user")
 @SQLDelete(sql = "UPDATE user SET is_active = false WHERE id=?")
 public class User extends BaseEntity {
