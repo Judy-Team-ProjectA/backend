@@ -14,27 +14,27 @@ services:
       - "3307:3306"
     volumes:
       - HealthIn_data:/var/lib/mysql
-    networks:
-      - app-tier
+#    networks:
+#      - app-tier
     tty: true
 
-  backend:
-    container_name: HealthIn-backend
-    build:
-      context: ./
-    command: gradle bootRun
-    ports:
-      - "8080:8080"
-    networks:
-      - app-tier
-    depends_on:
-      - db
-    restart: on-failure
-    tty: true
-
-networks:
-  app-tier:
-    driver: bridge
+#  backend:
+#    container_name: HealthIn-backend
+#    build:
+#      context: ./
+#    command: gradle bootRun
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - app-tier
+#    depends_on:
+#      - db
+#    restart: on-failure
+#    tty: true
+#
+#networks:
+#  app-tier:
+#    driver: bridge
 
 volumes:
   HealthIn_data: null
