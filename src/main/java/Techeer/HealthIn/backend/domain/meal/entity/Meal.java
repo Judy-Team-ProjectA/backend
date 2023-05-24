@@ -53,7 +53,7 @@ public class Meal extends BaseEntity {
     private int fat;
 
     @Builder
-    public Meal(LocalDateTime date, String food, String description, int calories, int carbohydrates, int protein, int fat) {
+    public Meal(User user, LocalDateTime date, String food, String description, int calories, int carbohydrates, int protein, int fat) {
         this.user = user;
         this.date = date;
         this.food = food;
