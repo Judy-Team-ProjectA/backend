@@ -15,7 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Entity
-@Table(name = "diet")
+@Table(name = "meal")
 @SQLDelete(sql = "UPDATE meal SET is_activated = false WHERE id=?")
 public class Meal extends BaseEntity {
     @Id
@@ -54,6 +54,7 @@ public class Meal extends BaseEntity {
 
     @Builder
     public Meal(LocalDateTime date, String food, String description, int calories, int carbohydrates, int protein, int fat) {
+        this.user = user;
         this.date = date;
         this.food = food;
         this.description = description;
