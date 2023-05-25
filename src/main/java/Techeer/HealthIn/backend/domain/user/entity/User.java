@@ -1,6 +1,8 @@
 package Techeer.HealthIn.backend.domain.user.entity;
 
 import Techeer.HealthIn.backend.domain.matching.entity.Matching;
+import Techeer.HealthIn.backend.domain.meal.entity.Meal;
+import Techeer.HealthIn.backend.domain.workout.entity.Workout;
 import Techeer.HealthIn.backend.global.domain.BaseEntity;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
@@ -60,6 +62,11 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user")
     private List<ByDay> byDays = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<Meal> diets = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Workout> works = new ArrayList<>();
     public enum Gender {
         MALE, FEMALE
     }
