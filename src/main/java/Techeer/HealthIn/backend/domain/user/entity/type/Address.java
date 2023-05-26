@@ -1,4 +1,4 @@
-package Techeer.HealthIn.backend.domain.user.entity;
+package Techeer.HealthIn.backend.domain.user.entity.type;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,7 +1,7 @@
 package Techeer.HealthIn.backend.domain.user.entity;
 
-import Techeer.HealthIn.backend.domain.matching.entity.Matching;
 import Techeer.HealthIn.backend.domain.meal.entity.Meal;
+import Techeer.HealthIn.backend.domain.user.entity.type.Address;
 import Techeer.HealthIn.backend.domain.workout.entity.Workout;
 import Techeer.HealthIn.backend.global.domain.BaseEntity;
 import lombok.*;

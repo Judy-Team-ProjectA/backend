@@ -1,12 +1,11 @@
 package Techeer.HealthIn.backend.domain.user.entity;
 
+import Techeer.HealthIn.backend.domain.user.entity.type.Day;
 import Techeer.HealthIn.backend.global.domain.BaseEntity;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
-
-import java.util.UUID;
 
 import static javax.persistence.FetchType.LAZY;
 
