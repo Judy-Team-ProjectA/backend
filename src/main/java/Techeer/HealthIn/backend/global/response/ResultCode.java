@@ -7,7 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ResultCode {
     // user
-    CREATE_USER_SUCCESS(200, "U001", "사용자 추가 성공")
+    CREATE_USER_SUCCESS(200, "U001", "사용자 추가 성공"),
+    READ_USER_SUCCESS(200, "U002", "사용자 조회 성공"),
+    UPDATE_USER_SUCCESS(200, "U003", "사용자 정보 수정 성공")
     ;
     private int status;
     private final String code;
