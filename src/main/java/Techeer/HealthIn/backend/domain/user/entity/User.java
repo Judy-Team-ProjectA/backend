@@ -47,7 +47,7 @@ public class User extends BaseEntity {
     private Integer career;
 
     @Column(name = "sbd", length = 11)
-    private Long sbd;
+    private float sbd;
 
     @Column(name = "gym", length = 255)
     private String gym;
@@ -72,7 +72,7 @@ public class User extends BaseEntity {
     }
 
     @Builder
-    public User(String email, String password, String name, Gender gender, Integer age, Integer career, Long sbd, String gym, LocalDateTime time, Address address) {
+    public User(String email, String password, String name, Gender gender, Integer age, Integer career, float sbd, String gym, LocalDateTime time, Address address) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -81,8 +81,11 @@ public class User extends BaseEntity {
         this.career = career;
         this.sbd = sbd;
         this.gym = gym;
+
         this.address = address;
+
         this.time = time;
+
 
         super.isActivated = true;
         this.uuid = UUID.randomUUID();

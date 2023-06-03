@@ -6,23 +6,26 @@ import Techeer.HealthIn.backend.domain.user.entity.type.Address;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 public class UserCreateRequest {
-    private MultipartFile userImage;
+    //private MultipartFile userImage;
+    //private LocalDateTime userGymTime;
 
     private String userEmail;
     private String userPassword;
     private String userName;
-    private String userPhoto;
     private Gender userGender;
     private Integer userAge;
     private Integer userCareer;
-    private Long userSbd;
+    private float userSbd;
     private String userGym;
-    private Address userAddress;
 
+    private String userCity;
+    private String userDistrict;
 
 }
