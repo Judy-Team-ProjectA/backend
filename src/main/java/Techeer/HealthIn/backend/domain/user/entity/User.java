@@ -81,11 +81,9 @@ public class User extends BaseEntity {
         this.career = career;
         this.sbd = sbd;
         this.gym = gym;
-
         this.address = address;
 
         this.time = time;
-
 
         super.isActivated = true;
         this.uuid = UUID.randomUUID();

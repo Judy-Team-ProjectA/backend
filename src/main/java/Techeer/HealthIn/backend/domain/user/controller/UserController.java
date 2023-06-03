@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @RequestMapping("/api/v1/users")
 @RestController
@@ -20,7 +21,13 @@ public class UserController {
     @PostMapping
     public ResponseEntity<ResultResponse> createUser(@Valid @ModelAttribute UserCreateRequest userCreateRequest)
     {
-        User user = userService.userCreate(userCreateRequest);
-        return ResponseEntity.ok(ResultResponse.of(ResultCode.USER_CREATE_SUCCESS, user));
+        User user = userService.createUser(userCreateRequest);
+        return ResponseEntity.ok(ResultResponse.of(ResultCode.USER_CREATE_SUCCESS, user.getUuid()));
+    }
+
+    @GetMapping("/{userUuid}")
+    public ResponseEntity<ResultResponse> readOneUser(@Valid @PathVariable UUID userUuid) {
+        User user = userService.readOneUser(userUuid);
+        return ResponseEntity.ok(ResultResponse.of(ResultCode.USER_READ_ONE_SUCCESS, user));
     }
 }

@@ -7,15 +7,21 @@ import Techeer.HealthIn.backend.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
-    public User userCreate(UserCreateRequest userCreateRequest) {
+    public User createUser(UserCreateRequest userCreateRequest) {
         User user = userMapper.mapUserCreateRequestToUser(userCreateRequest);
         userRepository.save(user);
         return user;
+    }
+
+    public User readOneUser(UUID userUuid) {
+        return userRepository.findUserByUuid(userUuid);
     }
 }
