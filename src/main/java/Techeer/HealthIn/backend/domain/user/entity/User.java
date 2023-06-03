@@ -41,13 +41,13 @@ public class User extends BaseEntity {
     private Gender gender;
 
     @Column(name = "age", length = 11)
-    private int age;
+    private Integer age;
 
     @Column(name = "career", length = 11)
-    private int career;
+    private Integer career;
 
     @Column(name = "sbd", length = 11)
-    private float sbd;
+    private Long sbd;
 
     @Column(name = "gym", length = 255)
     private String gym;
@@ -72,7 +72,7 @@ public class User extends BaseEntity {
     }
 
     @Builder
-    public User(String email, String password, String name, Gender gender, int age, int career, float sbd, String gym, LocalDateTime time, Address address) {
+    public User(String email, String password, String name, Gender gender, Integer age, Integer career, Long sbd, String gym, LocalDateTime time, Address address) {
         this.email = email;
         this.password = password;
         this.name = name;
