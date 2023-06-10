@@ -65,8 +65,8 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user")
     private List<Meal> diets = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
-    private List<Workout> works = new ArrayList<>();
+//    @OneToMany(mappedBy = "user")
+//    private List<Workout> works = new ArrayList<>();
     public enum Gender {
         MALE, FEMALE
     }
