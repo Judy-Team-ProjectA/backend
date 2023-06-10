@@ -30,4 +30,13 @@ public class UserController {
         User user = userService.readOneUser(userUuid);
         return ResponseEntity.ok(ResultResponse.of(ResultCode.USER_READ_ONE_SUCCESS, user));
     }
+
+    @DeleteMapping("/{userUuid}")
+    public ResponseEntity<ResultResponse> deleteOneUser(@Valid @PathVariable UUID userUuid) {
+        userService.deleteOneUser(userUuid);
+        return ResponseEntity.ok(ResultResponse.of(ResultCode.USER_DELETE_SUCCESS, ""));
+    }
+
+
+
 }

@@ -46,20 +46,30 @@ public class User extends BaseEntity {
     @Column(name = "age", length = 11)
     private Integer age;
 
+
+    @Embedded
+    @AttributeOverride(name="city", column = @Column(name = "city"))
+    @AttributeOverride(name="district", column = @Column(name = "district"))
+    private Address address;
+
+
     @Column(name = "career", length = 11)
     private Integer career;
 
     @Column(name = "sbd", length = 11)
     private float sbd;
 
+    @Embedded
+    @AttributeOverride(name="city", column = @Column(name = "gym_city"))
+    @AttributeOverride(name="district", column = @Column(name = "gym_district"))
+    private Address gymAddress;
+
     @Column(name = "gym", length = 255)
     private String gym;
 
-    @Embedded
-    private Address address;
-
     @Enumerated(EnumType.STRING)
-    private GymTime time;
+    @Column(name = "gym_time")
+    private GymTime gymTime;
 
 
     @OneToMany(mappedBy = "user")
@@ -75,7 +85,18 @@ public class User extends BaseEntity {
     }
 
     @Builder
-    public User(String email, String password, String photo, String name, Gender gender, Integer age, Integer career, float sbd, String gym, GymTime time, Address address) {
+    public User(String email,
+                String password,
+                String photo,
+                String name,
+                Gender gender,
+                Integer age,
+                Integer career,
+                float sbd,
+                String gym,
+                GymTime gymTime,
+                Address gymAddress,
+                Address address) {
         this.email = email;
         this.password = password;
         this.photo = photo;
@@ -84,10 +105,11 @@ public class User extends BaseEntity {
         this.age = age;
         this.career = career;
         this.sbd = sbd;
-        this.gym = gym;
-        this.address = address;
 
-        this.time = time;
+        this.gym = gym;
+        this.gymAddress = gymAddress;
+        this.address = address;
+        this.gymTime = gymTime;
 
         super.isActivated = true;
         this.uuid = UUID.randomUUID();

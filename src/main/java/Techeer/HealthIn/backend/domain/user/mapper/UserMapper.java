@@ -15,20 +15,20 @@ public class UserMapper {
     private final S3Service s3Service;
 
     public User mapUserCreateRequestToUser(UserCreateRequest userCreateRequest){
-        String userPhoto = s3Service.uploadFile(userCreateRequest.getUserPhoto());
 
         return User.builder()
                 .email(userCreateRequest.getUserEmail())
                 .password(userCreateRequest.getUserPassword())
-                .photo(userPhoto)
+                .photo(s3Service.uploadFile(userCreateRequest.getUserPhoto()))
                 .name(userCreateRequest.getUserName())
                 .gender(userCreateRequest.getUserGender())
                 .age(userCreateRequest.getUserAge())
                 .career(userCreateRequest.getUserCareer())
                 .sbd(userCreateRequest.getUserSbd())
                 .gym(userCreateRequest.getUserGym())
+                .gymAddress(new Address(userCreateRequest.getUserGymCity(), userCreateRequest.getUserGymDistrict()))
                 .address(new Address(userCreateRequest.getUserCity(), userCreateRequest.getUserDistrict()))
-                .time(userCreateRequest.getUserGymTime())
+                .gymTime(userCreateRequest.getUserGymTime())
                 .build();
 
 

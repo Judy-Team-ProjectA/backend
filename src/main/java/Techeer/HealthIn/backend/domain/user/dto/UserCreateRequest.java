@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 public class UserCreateRequest {
+
     private MultipartFile userPhoto;
-    private GymTime userGymTime;
 
     private String userEmail;
     private String userPassword;
@@ -24,7 +24,11 @@ public class UserCreateRequest {
     private Integer userAge;
     private Integer userCareer;
     private float userSbd;
+    private GymTime userGymTime;
+
     private String userGym;
+    private String userGymCity;
+    private String userGymDistrict;
 
     private String userCity;
     private String userDistrict;

@@ -7,6 +7,7 @@ import Techeer.HealthIn.backend.domain.user.repository.UserRepository;
 import Techeer.HealthIn.backend.global.service.S3Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -25,5 +26,10 @@ public class UserService {
 
     public User readOneUser(UUID userUuid) {
         return userRepository.findUserByUuid(userUuid);
+    }
+
+
+    public void deleteOneUser(UUID userUuid) {
+        userRepository.deleteByUuid(userUuid);
     }
 }
