@@ -2,6 +2,7 @@ package Techeer.HealthIn.backend.domain.user.entity;
 
 import Techeer.HealthIn.backend.domain.meal.entity.Meal;
 import Techeer.HealthIn.backend.domain.user.entity.type.Address;
+import Techeer.HealthIn.backend.domain.user.entity.type.GymTime;
 import Techeer.HealthIn.backend.domain.workout.entity.Workout;
 import Techeer.HealthIn.backend.global.domain.BaseEntity;
 import lombok.*;
@@ -55,8 +56,8 @@ public class User extends BaseEntity {
     @Embedded
     private Address address;
 
-    @Column(name = "time")
-    private LocalDateTime time;
+    @Enumerated(EnumType.STRING)
+    private GymTime time;
 
 
     @OneToMany(mappedBy = "user")
@@ -72,7 +73,7 @@ public class User extends BaseEntity {
     }
 
     @Builder
-    public User(String email, String password, String name, Gender gender, Integer age, Integer career, float sbd, String gym, LocalDateTime time, Address address) {
+    public User(String email, String password, String name, Gender gender, Integer age, Integer career, float sbd, String gym, GymTime time, Address address) {
         this.email = email;
         this.password = password;
         this.name = name;

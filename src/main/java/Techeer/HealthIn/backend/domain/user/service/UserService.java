@@ -16,6 +16,8 @@ public class UserService {
     private final UserMapper userMapper;
 
     public User createUser(UserCreateRequest userCreateRequest) {
+        userCreateRequest.getUserImage()
+
         User user = userMapper.mapUserCreateRequestToUser(userCreateRequest);
         userRepository.save(user);
         return user;

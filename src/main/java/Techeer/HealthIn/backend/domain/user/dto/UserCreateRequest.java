@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 public class UserCreateRequest {
-    private MultipartFile userImage;
-    //private LocalDateTime userGymTime;
+    private MultipartFile userPhoto;
+    private LocalDateTime userGymTime;
 
     private String userEmail;
     private String userPassword;
