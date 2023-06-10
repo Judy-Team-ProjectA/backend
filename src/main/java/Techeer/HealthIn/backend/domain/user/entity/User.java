@@ -35,6 +35,8 @@ public class User extends BaseEntity {
     @Column(name = "password", length = 45)
     private String password;
 
+    @Column(name = "photo")
+    private String photo;
     @Column(name = "name")
     private String name;
 
@@ -73,9 +75,10 @@ public class User extends BaseEntity {
     }
 
     @Builder
-    public User(String email, String password, String name, Gender gender, Integer age, Integer career, float sbd, String gym, GymTime time, Address address) {
+    public User(String email, String password, String photo, String name, Gender gender, Integer age, Integer career, float sbd, String gym, GymTime time, Address address) {
         this.email = email;
         this.password = password;
+        this.photo = photo;
         this.name = name;
         this.gender = gender;
         this.age = age;

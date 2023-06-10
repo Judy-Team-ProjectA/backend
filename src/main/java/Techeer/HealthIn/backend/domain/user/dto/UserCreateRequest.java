@@ -3,6 +3,7 @@ package Techeer.HealthIn.backend.domain.user.dto;
 import Techeer.HealthIn.backend.domain.user.entity.User;
 import Techeer.HealthIn.backend.domain.user.entity.User.Gender;
 import Techeer.HealthIn.backend.domain.user.entity.type.Address;
+import Techeer.HealthIn.backend.domain.user.entity.type.GymTime;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class UserCreateRequest {
     private MultipartFile userPhoto;
-    private LocalDateTime userGymTime;
+    private GymTime userGymTime;
 
     private String userEmail;
     private String userPassword;
